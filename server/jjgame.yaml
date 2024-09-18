@@ -1,0 +1,14 @@
+LogConfig:
+  Level: debug
+#  Format: json
+  Path: ./logs
+  Name: jjgame.log
+  FileMaxSize: 100
+  FileMaxBackups: 100
+  FileMaxAge: 7
+#  Compress: true
+  Stdout: true
+
+ServerConfig:
+  Prot: tcp
+  Addr: 0.0.0.0:20000
