@@ -14,18 +14,18 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bhello.proto\x12\x05hello\"\x17\n\x08HelloReq\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\x18\n\tHelloResp\x12\x0b\n\x03msg\x18\x01 \x01(\t27\n\x06Tester\x12-\n\x08SayHello\x12\x0f.hello.HelloReq\x1a\x10.hello.HelloRespB\x17Z\x15internal/protoc/hellob\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bhello.proto\x12\x05hello\"\x17\n\x08HelloReq\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\x18\n\tHelloResp\x12\x0b\n\x03msg\x18\x01 \x01(\t2\xcf\x01\n\x06Tester\x12-\n\x08SayHello\x12\x0f.hello.HelloReq\x1a\x10.hello.HelloResp\x12\x30\n\tSayHello2\x12\x0f.hello.HelloReq\x1a\x10.hello.HelloResp0\x01\x12\x30\n\tSayHello3\x12\x0f.hello.HelloReq\x1a\x10.hello.HelloResp(\x01\x12\x32\n\tSayHello4\x12\x0f.hello.HelloReq\x1a\x10.hello.HelloResp(\x01\x30\x01\x42\x18Z\x16internal/service/hellob\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'hello_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\025internal/protoc/hello'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\026internal/service/hello'
   _globals['_HELLOREQ']._serialized_start=22
   _globals['_HELLOREQ']._serialized_end=45
   _globals['_HELLORESP']._serialized_start=47
   _globals['_HELLORESP']._serialized_end=71
-  _globals['_TESTER']._serialized_start=73
-  _globals['_TESTER']._serialized_end=128
+  _globals['_TESTER']._serialized_start=74
+  _globals['_TESTER']._serialized_end=281
 # @@protoc_insertion_point(module_scope)

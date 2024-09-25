@@ -19,6 +19,21 @@ class TesterStub(object):
                 request_serializer=hello__pb2.HelloReq.SerializeToString,
                 response_deserializer=hello__pb2.HelloResp.FromString,
                 )
+        self.SayHello2 = channel.unary_stream(
+                '/hello.Tester/SayHello2',
+                request_serializer=hello__pb2.HelloReq.SerializeToString,
+                response_deserializer=hello__pb2.HelloResp.FromString,
+                )
+        self.SayHello3 = channel.stream_unary(
+                '/hello.Tester/SayHello3',
+                request_serializer=hello__pb2.HelloReq.SerializeToString,
+                response_deserializer=hello__pb2.HelloResp.FromString,
+                )
+        self.SayHello4 = channel.stream_stream(
+                '/hello.Tester/SayHello4',
+                request_serializer=hello__pb2.HelloReq.SerializeToString,
+                response_deserializer=hello__pb2.HelloResp.FromString,
+                )
 
 
 class TesterServicer(object):
@@ -30,11 +45,44 @@ class TesterServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SayHello2(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SayHello3(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SayHello4(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TesterServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
+                    request_deserializer=hello__pb2.HelloReq.FromString,
+                    response_serializer=hello__pb2.HelloResp.SerializeToString,
+            ),
+            'SayHello2': grpc.unary_stream_rpc_method_handler(
+                    servicer.SayHello2,
+                    request_deserializer=hello__pb2.HelloReq.FromString,
+                    response_serializer=hello__pb2.HelloResp.SerializeToString,
+            ),
+            'SayHello3': grpc.stream_unary_rpc_method_handler(
+                    servicer.SayHello3,
+                    request_deserializer=hello__pb2.HelloReq.FromString,
+                    response_serializer=hello__pb2.HelloResp.SerializeToString,
+            ),
+            'SayHello4': grpc.stream_stream_rpc_method_handler(
+                    servicer.SayHello4,
                     request_deserializer=hello__pb2.HelloReq.FromString,
                     response_serializer=hello__pb2.HelloResp.SerializeToString,
             ),
@@ -60,6 +108,57 @@ class Tester(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hello.Tester/SayHello',
+            hello__pb2.HelloReq.SerializeToString,
+            hello__pb2.HelloResp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SayHello2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/hello.Tester/SayHello2',
+            hello__pb2.HelloReq.SerializeToString,
+            hello__pb2.HelloResp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SayHello3(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/hello.Tester/SayHello3',
+            hello__pb2.HelloReq.SerializeToString,
+            hello__pb2.HelloResp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SayHello4(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/hello.Tester/SayHello4',
             hello__pb2.HelloReq.SerializeToString,
             hello__pb2.HelloResp.FromString,
             options, channel_credentials,

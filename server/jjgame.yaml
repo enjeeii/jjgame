@@ -1,6 +1,7 @@
-LogConfig:
+Logger:
   Level: debug
 #  Format: json
+  Format: logfmt
   Path: ./logs
   Name: jjgame.log
   FileMaxSize: 100
@@ -9,6 +10,6 @@ LogConfig:
 #  Compress: true
   Stdout: true
 
-ServerConfig:
+HelloApp:
   Prot: tcp
   Addr: 0.0.0.0:20000

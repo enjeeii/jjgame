@@ -18,22 +18,18 @@ func InitAppConfig() {
 
 func GetLoggerConfig() *logger.LogConfig {
 	return &logger.LogConfig{
-		LogLevel:          viper.GetString("LogConfig.Level"),
-		LogFormat:         viper.GetString("LogConfig.Format"),
-		LogPath:           viper.GetString("LogConfig.Path"),
-		LogName:           viper.GetString("LogConfig.Name"),
-		LogFileMaxSize:    viper.GetInt("LogConfig.FileMaxSize"),
-		LogFileMaxBackups: viper.GetInt("LogConfig.FileMaxBackups"),
-		LogFileMaxAge:     viper.GetInt("LogConfig.FileMaxAge"),
-		LogCompress:       viper.GetBool("LogConfig.Compress"),
-		LogStdout:         viper.GetBool("LogConfig.Stdout"),
+		LogLevel:          viper.GetString("Logger.Level"),
+		LogFormat:         viper.GetString("Logger.Format"),
+		LogPath:           viper.GetString("Logger.Path"),
+		LogName:           viper.GetString("Logger.Name"),
+		LogFileMaxSize:    viper.GetInt("Logger.FileMaxSize"),
+		LogFileMaxBackups: viper.GetInt("Logger.FileMaxBackups"),
+		LogFileMaxAge:     viper.GetInt("Logger.FileMaxAge"),
+		LogCompress:       viper.GetBool("Logger.Compress"),
+		LogStdout:         viper.GetBool("Logger.Stdout"),
 	}
 }
 
-func GetServerProtocol() string {
-	return viper.GetString("ServerConfig.Prot")
-}
-
-func GetServerAddress() string {
-	return viper.GetString("ServerConfig.Addr")
+func GetString(name string) string {
+	return viper.GetString(name)
 }

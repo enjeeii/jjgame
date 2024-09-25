@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package hello;
+option go_package = "internal/service/hello";
+
+message HelloReq {
+  string msg = 1;
+}
+
+message HelloResp {
+  string msg = 1;
+}
+
+service Tester {
+  rpc SayHello(HelloReq) returns(HelloResp);
+  rpc SayHello2(HelloReq) returns(stream HelloResp);
+  rpc SayHello3(stream HelloReq) returns(HelloResp);
+  rpc SayHello4(stream HelloReq) returns(stream HelloResp);
+}
